@@ -17,7 +17,7 @@ data.forEach((el, i) => {
 
     el.boxes.forEach((el, i) => {
         $HTML += `
-            <div class="waves-effect waves-light btn modal-trigger box" data-id=${i}><span>${i+1}</span></div>
+            <div class="waves-effect waves-light btn modal-trigger box" data-id=${el.id}><span>${i+1}</span></div>
         `
     })
     $HTML += `</div>`
@@ -26,15 +26,29 @@ data.forEach((el, i) => {
 })
 
 
-new Promise((resolve, reject) => {
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instanceModal = M.Modal.init(elems);
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instanceModal = M.Modal.init(elems);
+
+    var singleModalElem = document.querySelector('#modal1');
+    var instanceSingle = M.Modal.getInstance(singleModalElem);
+    
+    document.querySelectorAll('.box').forEach((el) => {
+        el.addEventListener('click', ()=> {
+            dataBox = data.filter((el1)=>{
+                return el1.boxes.find((el2)=> {
+                    el2.id === el.dataset.id;
+                })
+            })
+           
+            
+            console.log(dataBox);
+            
+            //instanceSingle.open();
+        })
     })
-    console.log(1123);
-    
-}).then((data)=> {
-    console.log('qqq');
-    
+
 })
+
+    
 
