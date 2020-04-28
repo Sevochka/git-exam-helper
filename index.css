@@ -37,9 +37,12 @@
     max-height: 100%;
 }
 /* modal */
-.modal-content{
+.box-fn{
     padding: 0 !important;
 }
-.modal-content img{
+.box-fn img{
+    width: 100%;
+}
+.img-warning{
     width: 100%;
 }

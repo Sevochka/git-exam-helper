@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         el.addEventListener('click', ()=> {
             instanceSingle.el.innerHTML = `
-            <div class="modal-content">
+            <div class="modal-content box-fn">
                 <img src="img/${boxElement.img}">
             </div>
             <div class="modal-footer">
@@ -73,8 +73,26 @@ document.addEventListener('DOMContentLoaded', function() {
             `
             instanceSingle.open();
         })
-    })
+    });
 
+    document.querySelector('#info').addEventListener('click', ()=>{
+        instanceSingle.el.innerHTML = `
+            <div class="modal-content">
+                <p><b>Внимание!</b> Будьте осторожны с решением, где применяется rebase. 
+                В данном примере <span>--solution- ordering С3,С5,С6</span> 
+                <b>вводить не нужно!</b>. Вводить только то, что подчеркнуто <span class='red'>красным.</span>
+                От вас требуется выбрать правильный порядок в открывшейся консоли.
+                </p>
+                <img class="img-warning" src="img/10.png">
+                <hr>
+                <img class="img-warning" src="img/10_1.png">
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+            `
+            instanceSingle.open();
+    })
 })
 
     
